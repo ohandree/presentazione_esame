@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Gioco</title>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar">
+    <a class="sidebar-avatar" href="index.html" title="Torna alla Home">
+      <img src="img/testa.png" alt="Avatar">
+    </a>
+
+    <!-- AVATAR -->
+    <button class="nav-btn active" id="nav-avatar" onclick="navClick('sec-avatar', 'nav-avatar')" title="Avatar">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-circle-user" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">AVATAR</span>
+    </button>
+
+    <!-- LV1 -->
+    <button class="nav-btn" id="nav-lv1" onclick="navClick('sec-livello1', 'nav-lv1')" title="Livello 1">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-star" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">LV.1</span>
+      <div class="lock-overlay" id="lock-lv1">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- LV2 -->
+    <button class="nav-btn" id="nav-lv2" onclick="navClick('sec-livello2', 'nav-lv2')" title="Livello 2">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-star" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">LV.2</span>
+      <div class="lock-overlay" id="lock-lv2">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- LV3 -->
+    <button class="nav-btn" id="nav-lv3" onclick="navClick('sec-livello3', 'nav-lv3')" title="Livello 3">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-star" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">LV.3</span>
+      <div class="lock-overlay" id="lock-lv3">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- LV4 -->
+    <button class="nav-btn" id="nav-lv4" onclick="navClick('sec-livello4', 'nav-lv4')" title="Livello 4">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-star" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">LV.4</span>
+      <div class="lock-overlay" id="lock-lv4">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- LV5 -->
+    <button class="nav-btn" id="nav-lv5" onclick="navClick('sec-livello5', 'nav-lv5')" title="Livello 5">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-star" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">LV.5</span>
+      <div class="lock-overlay" id="lock-lv5">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- LV BONUS -->
+    <button class="nav-btn" id="nav-bonus" onclick="navClick('sec-bonus', 'nav-bonus')" title="Livello Bonus">
+      <div class="tab-indicator"></div>
+      <span style="position:relative; display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px;">
+        <i class="fa-solid fa-star" style="position:absolute; font-size:22px; color:#8e39d4;"></i>
+      </span>
+      <span class="nav-label">BONUS</span>
+      <div class="lock-overlay" id="lock-bonus">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- NEXT LVL -->
+    <button class="nav-btn" id="nav-soon" onclick="navClick('sec-soon', 'nav-soon')" title="Prospettive Future">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-clock" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">NEXT LVL</span>
+      <div class="lock-overlay" id="lock-soon">
+        <i class="fa-solid fa-lock" style="font-size:14px; color:#a7a9be;"></i>
+      </div>
+    </button>
+
+    <!-- TOOLS -->
+    <button class="nav-btn" id="nav-tools" onclick="navClick('sec-tools', 'nav-tools')" title="Tools">
+      <div class="tab-indicator"></div>
+      <i class="fa-solid fa-wrench" style="font-size:22px; color:#FFD700;"></i>
+      <span class="nav-label">TOOLS</span>
+    </button>
+
+  </aside>
+
+
+  <!-- ══════════ CONTENT ══════════ -->
+  <main class="content">
+
+    <div class="page-header">
+      <div class="page-header-left">
+        <div class="page-header-title">ANDREA MEI</div>
+        <div class="page-header-details">ITCG · Indirizzo Tecnologie Informatiche</div>
+      </div>
+      <div class="page-header-date">
+        <span class="header-date-text">A.S. 2025/2026</span>
+        <div class="header-lock" id="header-lock" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect class="lock-body" x="4" y="11" width="16" height="9" rx="2"/>
+            <path class="lock-shackle" d="M8 11V7a4 4 0 0 1 8 0v4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════ AVATAR SECTION ══════════ -->
+    <section id="sec-avatar" class="section">
+      <div class="section-title">CREAZIONE AVATAR</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="competence-info-card empty" id="comp-info-card">
+          <h2 id="comp-info-title"></h2>
+          <p id="comp-info-text"></p>
+        </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="main-avatar-img" src="img/avatar.png" alt="Avatar">
+            <div class="backpack-wrapper" id="backpack-wrapper" title="Zaino">
+              <img id="backpack-static" class="backpack-img" src="img/backpack.png" alt="Zaino">
+              <img id="backpack-open" class="backpack-img hidden" src="img/backpack-open.png" alt="Zaino aperto">
+            </div>
+          </div>
+          <button class="btn-primary avatar-action-btn" onclick="goToLevel(1)">
+            AVANTI ▶
+          </button>
+        </div>
+
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+
+            <div class="competence-group">
+              <div class="competence-toggle" id="toggle-tech" onclick="toggleCompetence('tech')">
+                <span class="subject-btn subject-btn-toggle" aria-hidden="true">
+                  <span class="subj-icon">🖥️</span>
+                </span>
+                <span class="subject-label">Competenze tecniche</span>
+              </div>
+              <div class="competence-list" id="competence-tech">
+                <div class="competence-list-inner">
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Tecnologie Informatiche','Competenze e conoscenze di base nell\'utilizzo di computer e strumenti digitali. Informazioni su componenti hardware e software, approccio alle basi della rete internet e utilizzo del pacchetto office.'); shakeZaino(this)"
+                      aria-label="Tecn. Inf.">
+                      <span class="subj-icon">🖥️</span>
+                    </button>
+                    <span class="subject-label">Tecn. Inf.</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Informatica','Competenze e conoscenze approfondite su programmazione di prodotti digitali. Informazioni avanzate su linguaggi di progettazione, database e algoritmi.'); shakeZaino(this)"
+                      aria-label="Informatica">
+                      <span class="subj-icon">💻</span>
+                    </button>
+                    <span class="subject-label">Informatica</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Telecomunicazioni','Competenze relative alla trasmissioni delle informazioni attraverso segnali elettrici ed elettronici.'); shakeZaino(this)"
+                      aria-label="Telecomunicazioni">
+                      <span class="subj-icon">📡</span>
+                    </button>
+                    <span class="subject-label">Telecomunicazioni</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Sistemi e Reti','Competenze sulle modalità di comunicazione e interazione tra computer. Approfondimento sulle reti informatiche, protocolli di comunicazione, indirizzi IP e configurazione indirizzi di rete.'); shakeZaino(this)"
+                      aria-label="Sistemi e Reti">
+                      <span class="subj-icon">🌐</span>
+                    </button>
+                    <span class="subject-label">Sistemi e Reti</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('TIPSIT','Competenze e studio dei principi della progettazione e realizzazione di sistemi informatici e tecnologici. Gestione componenti hardware e software e funzionamento dei dispositivi informatici.'); shakeZaino(this)"
+                      aria-label="TIPSIT">
+                      <span class="subj-icon">🧠</span>
+                    </button>
+                    <span class="subject-label">TIPSIT</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('GPO','Competenze sull\'organizzazione di progetti complessi e gestione attività in ambito aziendale nel mondo delle imprese. Analisi delle fasi di un progetto dall\'analisi alla progettazione.'); shakeZaino(this)"
+                      aria-label="GPO">
+                      <span class="subj-icon">⚙️</span>
+                    </button>
+                    <span class="subject-label">GPO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="competence-group">
+              <div class="competence-toggle" id="toggle-rel" onclick="toggleCompetence('rel')">
+                <span class="subject-btn subject-btn-toggle" aria-hidden="true">
+                  <span class="subj-icon">🤝</span>
+                </span>
+                <span class="subject-label">Competenze relazionali</span>
+              </div>
+              <div class="competence-list" id="competence-rel">
+                <div class="competence-list-inner">
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Problem Solving','Capacità di analizzare problemi complessi, scomporre le difficoltà e trovare soluzioni creative ed efficaci.'); shakeZaino(this)"
+                      aria-label="Problem Solving">
+                      <span class="subj-icon">🧩</span>
+                    </button>
+                    <span class="subject-label">Problem solving</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Collaborazione','Lavoro di squadra, ascolto attivo e cooperazione per raggiungere obiettivi condivisi.'); shakeZaino(this)"
+                      aria-label="Collaborazione">
+                      <span class="subj-icon">🤝</span>
+                    </button>
+                    <span class="subject-label">Collaborazione</span>
+                  </div>
+                  <div class="subject-row">
+                    <button class="subject-btn"
+                      onclick="showCompCard('Responsabilità','Puntualità, affidabilità e capacità di rispettare gli impegni presi con cura e autonomia.'); shakeZaino(this)"
+                      aria-label="Responsabilità">
+                      <span class="subj-icon">🏅</span>
+                    </button>
+                    <span class="subject-label">Responsabilità</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ LIVELLO 1 ══════════ -->
+    <section id="sec-livello1" class="section" style="display:none;">
+      <div class="section-title">LIVELLO 1</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="level-info-card">
+        <h2>Workshop &amp; Academy — A.S. 2023/2024</h2>
+        <p>Informatico e autore di giochi con oltre 20 anni di esperienza. Si occupa della creazione di videogiochi in ambito ludico e per la valorizzazione turistica e culturale della Sardegna. È membro dell'associazione Fabbrica Storie e presidente di Ottava Arte, associazioni che promuovono attività ludiche e culturali.</p>
+      </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="lv1-avatar-img" src="img/avatar.png" alt="Avatar Livello 1">
+          </div>
+        </div>
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn link-btn" onclick="window.open('https://www.instagram.com/andreaassorgia','_blank')" aria-label="Andrea Assorgia">
+                <span class="subj-icon">🤖</span>
+              </button>
+              <span class="subject-label">Andrea Assorgia — Workshop</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn" onclick="window.open('https://www.gamemakeracademy.it/','_blank')" aria-label="Game Maker Academy">
+                <span class="subj-icon">💻</span>
+              </button>
+              <span class="subject-label">Game Maker Academy</span>
+            </div>
+            <div class="subject-row unlock-row">
+              <button class="btn-unlock" id="btn-lv1" onclick="completeLivello(1)">
+                🔓 SBLOCCA ACCESSORIO
+              </button>
+            </div>
+          </div>
+          <div class="accessory-container" id="lv1-accessory" style="display:none;">
+            <img src="img/drago.png" alt="Accessorio Livello 1">
+          </div>
+          <button class="btn-primary btn-avanti" id="avanti-lv1" onclick="goToLevel(2)">
+            AVANTI ▶
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ LIVELLO 2 ══════════ -->
+    <section id="sec-livello2" class="section" style="display:none;">
+      <div class="section-title">LIVELLO 2</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="level-info-card">
+        <h2>Corso Videogiochi — A.S. 2023/2024</h2>
+        <p>• Ideazione e sviluppo degli obiettivi del gioco</p>
+        <p>• Progettazione e relizzazione di componenti base</p>
+        <p>• Progettazione e sviluppo di effetti dinamici</p>
+        <p>• Approfondimento su ambientazioni di gioco</p>
+      </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="lv2-avatar-img" src="img/avatar2.png" alt="Avatar Livello 2">
+          </div>
+        </div>
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn link-btn" onclick="window.open('https://www.academiaterra.it/','_blank')" aria-label="Accademia Terra">
+                <span class="subj-icon">🎮</span>
+              </button>
+              <span class="subject-label">Accademia Terra</span>
+            </div>
+            <div class="subject-row unlock-row">
+              <button class="btn-unlock" id="btn-lv2" onclick="completeLivello(2)" disabled>
+                🔒 COMPLETA LV.1 PRIMA
+              </button>
+            </div>
+          </div>
+          <div class="accessory-container" id="lv2-accessory" style="display:none;">
+            <img src="img/controller.png" alt="Accessorio Livello 2">
+          </div>
+          <button class="btn-primary btn-avanti" id="avanti-lv2" onclick="goToLevel(3)">
+            AVANTI ▶
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ LIVELLO 3 ══════════ -->
+    <section id="sec-livello3" class="section" style="display:none;">
+      <div class="section-title">LIVELLO 3</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="level-info-card">
+        <h2>Certificazione ICDL — A.S. 2024/2025</h2>
+        <p>International Certification of Digital Literacy. Attestazione del livello di competenze informatiche relative a 4 moduli:</p>
+        <p>• Computer Essential: utilizzo del computer</p>
+        <p>• Online Essential: navigazione online</p>
+        <p>• Spreadsheets: utilizzo Excel</p>
+        <p>• Word Processing: utilizzo Word</p>
+      </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="lv3-avatar-img" src="img/avatar3.png" alt="Avatar Livello 3">
+          </div>
+        </div>
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">🧑‍🏫</span>
+              </button>
+              <span class="subject-label">Prof.ssa Mereu &amp; Prof. Atzei</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn" onclick="window.open('https://www.istitutoangioy.edu.it/progetti-e-laboratori/icdl/','_blank')" aria-label="ICDL Sito">
+                <span class="subj-icon">🌐</span>
+              </button>
+              <span class="subject-label">ICDL</span>
+            </div>
+            <div class="subject-row unlock-row">
+              <button class="btn-unlock" id="btn-lv3" onclick="completeLivello(3)" disabled>
+                🔒 COMPLETA LV.2 PRIMA
+              </button>
+            </div>
+          </div>
+          <div class="accessory-container" id="lv3-accessory" style="display:none;">
+            <img src="img/laptop.png" alt="Accessorio Livello 3">
+          </div>
+          <button class="btn-primary btn-avanti" id="avanti-lv3" onclick="goToLevel(4)">
+            AVANTI ▶
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ LIVELLO 4 ══════════ -->
+    <section id="sec-livello4" class="section" style="display:none;">
+      <div class="section-title">LIVELLO 4</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="level-info-card">
+        <h2>Progetto Web — A.S. 2024/2025</h2>
+        <p>Realizzazione progetto web individuale: sito azienda di moda</p>
+      </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="lv4-avatar-img" src="img/avatar4.png" alt="Avatar Livello 4">
+          </div>
+        </div>
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">🧑‍🏫</span>
+              </button>
+              <span class="subject-label">Prof.ssa Mereu &amp; Prof. De Moliner</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn" onclick="window.open('Moda/felpe.html','_blank')" aria-label="Moda SITO">
+                <span class="subj-icon">💻</span>
+              </button>
+              <span class="subject-label">Moda</span>
+            </div>
+            <div class="subject-row unlock-row">
+              <button class="btn-unlock" id="btn-lv4" onclick="completeLivello(4)" disabled>
+                🔒 COMPLETA LV.3 PRIMA
+              </button>
+            </div>
+          </div>
+          <div class="accessory-container" id="lv4-accessory" style="display:none;">
+            <img src="img/cappellino.png" alt="Accessorio Livello 4">
+          </div>
+          <button class="btn-primary btn-avanti" id="avanti-lv4" onclick="goToLevel(5)">
+            AVANTI ▶
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ LIVELLO 5 ══════════ -->
+    <section id="sec-livello5" class="section" style="display:none;">
+      <div class="section-title">LIVELLO 5</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="level-info-card">
+        <h2>Progetto Web Biblioteca — A.S. 2025/2026</h2>
+        <p>Realizzazione progetto web di gruppo: sito biblioteca scolastica. Progettazione e design, utilizzo di filtri, dettagli informativi e gestione libri e utenti</p>
+      </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="lv5-avatar-img" src="img/avatar5.png" alt="Avatar Livello 5">
+          </div>
+        </div>
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">🧑‍🏫</span>
+              </button>
+              <span class="subject-label">Prof.ssa Vigo &amp; Prof. De Moliner</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">💻</span>
+              </button>
+              <span class="subject-label">Biblioteca</span>
+            </div>
+            <div class="subject-row unlock-row">
+              <button class="btn-unlock" id="btn-lv5" onclick="completeLivello(5)" disabled>
+                🔒 COMPLETA LV.4 PRIMA
+              </button>
+            </div>
+          </div>
+          <div class="accessory-container" id="lv5-accessory" style="display:none;">
+            <img src="img/occhiali.png" alt="Accessorio Livello 5">
+          </div>
+          <button class="btn-primary btn-avanti" id="avanti-lv5" onclick="goToSection('sec-bonus','nav-bonus')">
+            AVANTI ▶
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ LIVELLO BONUS ══════════ -->
+    <section id="sec-bonus" class="section" style="display:none;">
+      <div class="section-title" style="color: #a855f7; text-shadow: 0 0 30px rgba(168,85,247,0.5), 0 0 60px rgba(168,85,247,0.2);">LIVELLO BONUS</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="competence-info-card empty" id="bonus-info-card">
+          <h2 id="bonus-info-title"></h2>
+          <p id="bonus-info-text"></p>
+        </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="bonus-avatar-img" src="img/avatar6.png" alt="Avatar Livello Bonus">
+          </div>
+          <button class="btn-primary avatar-action-btn" onclick="goToSection('sec-soon','nav-soon')" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #9333ea 100%); box-shadow: 0 0 20px rgba(168,85,247,0.45), 0 4px 15px rgba(168,85,247,0.3);">
+            AVANTI ▶
+          </button>
+        </div>
+
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn"
+                onclick="showBonusCard('Informatica — Database Cybersecurity', 'In Informatica ho partecipato alla realizzazione di un database sul tema del bullismo e del cyberbullismo. Abbiamo analizzato il problema e progettato lo schema concettuale e lo schema logico, definendo tabelle, attributi e relazioni tra i dati. Successivamente abbiamo inserito e gestito le istanze all’interno del database, completando le diverse fasi di sviluppo di un sistema di gestione dei dati.')"
+                aria-label="Informatica">
+                <span class="subj-icon">💻</span>
+              </button>
+              <span class="subject-label">Informatica</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn"
+                onclick="showBonusCard('Italiano — Costituzione', 'In Italiano abbiamo studiato la Costituzione italiana come legge fondamentale dello Stato, approfondendo il concetto di Stato come insieme di popolo, territorio e sovranità. Abbiamo confrontato la Costituzione con lo Statuto Albertino e analizzato il contesto storico della nascita della Repubblica Italiana, dal referendum del 2 giugno 1946 fino all’entrata in vigore della Costituzione nel 1948. Infine abbiamo approfondito alcuni articoli fondamentali riguardanti uguaglianza, lavoro, cultura, istruzione e organizzazione dello Stato.')"
+                aria-label="Italiano">
+                <span class="subj-icon">📖</span>
+              </button>
+              <span class="subject-label">Italiano</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn"
+                onclick="showBonusCard('Inglese — Digital Citizenship', 'I studied digital citizenship and learned how to use technology in a safe, responsible, and respectful way. I explored topics such as personal data protection, online safety, identifying reliable information, and respecting others on the internet. This helped me understand the importance of responsible online behavior and how it contributes to creating a safer and more positive digital environment.')"
+                aria-label="Inglese">
+                <span class="subj-icon">🌍</span>
+              </button>
+              <span class="subject-label">Inglese</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn"
+                onclick="showBonusCard('Sistemi e Reti — Disinformazione', 'Ho studiato l\'Intelligenza Artificiale, le sue applicazioni (chatbot, Agent AI e IA generativa) e il suo ruolo nella diffusione delle informazioni. Ho approfondito concetti come text-to-text, text-to-image e deepfake, comprendendo i rischi della disinformazione. Confrontando strumenti come ChatGPT, Gemini, Copilot e Kimi ho imparato l\'importanza di usare l\'IA.')"
+                aria-label="Sistemi e Reti">
+                <span class="subj-icon">🔒</span>
+              </button>
+              <span class="subject-label">Sistemi e Reti</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ SEZIONE FUTURE (ex soon) ══════════ -->
+    <section id="sec-soon" class="section" style="display:none;">
+      <div class="section-title">PROSPETTIVE FUTURE</div>
+
+      <div class="avatar-section has-info-card">
+        <div class="level-info-card">
+        <h2>Prossimo Capitolo — Versione 2.0</h2>
+        <p>???</p>
+      </div>
+
+        <div class="avatar-panel">
+          <div class="avatar-big-frame">
+            <img id="soon-avatar-img" src="img/avatar6.png" alt="Avatar Prospettive">
+          </div>
+        </div>
+        <div class="subjects-panel">
+          <div class="subjects-grid">
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">📜</span>
+              </button>
+              <span class="subject-label">Diploma in Tecn. Informatiche</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">📋</span>
+              </button>
+              <span class="subject-label">Nuove certificazioni</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">🎓</span>
+              </button>
+              <span class="subject-label">Laurea Triennale in Informatica</span>
+            </div>
+            <div class="subject-row">
+              <button class="subject-btn link-btn">
+                <span class="subj-icon">💼</span>
+              </button>
+              <span class="subject-label">Esperienza lavorativa nel settore IT</span>
+            </div>
+            <div class="subject-row unlock-row">
+              <button class="btn-unlock" id="btn-soon" onclick="completeSoon()" disabled>
+                🔒 COMPLETA LV.5 PRIMA
+              </button>
+            </div>
+          </div>
+          <div class="accessory-container" id="soon-accessory" style="display:none;">
+            <img src="img/borsa.png" alt="Accessorio Finale">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════ TOOLS SECTION ══════════ -->
+    <section id="sec-tools" class="section" style="display:none;">
+      <div class="section-title">TOOLS &amp; STRUMENTI</div>
+
+      <div class="level-description">
+        <h2>Strumenti utilizzati per realizzare questo portfolio</h2>
+        <p>Linguaggi, editor e strumenti AI impiegati nella progettazione, sviluppo e creazione dei contenuti grafici e animati del sito.</p>
+      </div>
+
+      <div class="tools-grid">
+
+        <div class="tool-card">
+          <div class="tool-icon"><img src="img/javascript.png" alt="JavaScript"></div>
+          <div class="tool-name">JavaScript</div>
+          <div class="tool-desc">Linguaggio usato per la logica del sito: navigazione, animazioni e sblocco dei livelli.</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon"><img src="img/html.png" alt="HTML"></div>
+          <div class="tool-name">HTML</div>
+          <div class="tool-desc">Struttura e contenuti delle pagine del portfolio.</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon"><img src="img/css.png" alt="CSS"></div>
+          <div class="tool-name">CSS</div>
+          <div class="tool-desc">Stile, layout responsive, animazioni ed effetti grafici del sito.</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon"><img src="img/visual_studio_code.png" alt="Visual Studio Code"></div>
+          <div class="tool-name">Visual Studio Code</div>
+          <div class="tool-desc">Editor di codice utilizzato per scrivere e organizzare tutti i file del progetto.</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon"><img src="img/chatgpt.png" alt="ChatGPT"></div>
+          <div class="tool-name">AI — ChatGPT</div>
+          <div class="tool-desc">Utilizzato per generare immagini e grafiche presenti nel portfolio.</div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-icon"><img src="img/vecteezy.png" alt="Vecteezy"></div>
+          <div class="tool-name">Vecteezy</div>
+          <div class="tool-desc">Piattaforma utilizzata per trovare e scaricare risorse grafiche vettoriali e immagini.</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="version-tag">v2.0</div>
+
+<script>
+  // ════════════════════════════════════════
+  //  CONFIG
+  // ════════════════════════════════════════
+
+  const LEVEL_CONFIG = [
+    { avatarSrc: 'img/avatar2.png', label: '✔ ACCESSORIO SBLOCCATO' },
+    { avatarSrc: 'img/avatar3.png', label: '✔ ACCESSORIO SBLOCCATO' },
+    { avatarSrc: 'img/avatar4.png', label: '✔ ACCESSORIO SBLOCCATO' },
+    { avatarSrc: 'img/avatar5.png', label: '✔ ACCESSORIO SBLOCCATO' },
+    { avatarSrc: 'img/avatar6.png', label: '✔ ACCESSORIO SBLOCCATO' },
+    { avatarSrc: 'img/avatar7.png', label: '✔ ACCESSORIO SBLOCCATO' }
+  ];
+
+  const LEVEL_NAV = ['nav-lv1','nav-lv2','nav-lv3','nav-lv4','nav-lv5'];
+  const LEVEL_SEC = ['sec-livello1','sec-livello2','sec-livello3','sec-livello4','sec-livello5'];
+
+  // Sections that should show the animated header lock
+  const LOCK_SECTIONS = new Set(['sec-livello1','sec-livello2','sec-livello3','sec-livello4','sec-livello5','sec-bonus','sec-soon']);
+
+
+  // ════════════════════════════════════════
+  //  NAVIGATION
+  // ════════════════════════════════════════
+
+  function showSection(sectionId, navId) {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    const sec = document.getElementById(sectionId);
+    if (sec) sec.style.display = 'block';
+    const btn = document.getElementById(navId);
+    if (btn) btn.classList.add('active');
+
+    handleHeaderLock(sectionId);
+  }
+
+  function navClick(sectionId, navId) {
+    const lockId = navId.replace('nav-', 'lock-');
+    const lock = document.getElementById(lockId);
+    if (lock && lock.style.display !== 'none') return;
+    showSection(sectionId, navId);
+  }
+
+  function unlockNav(navId) {
+    const lock = document.getElementById(navId.replace('nav-', 'lock-'));
+    if (lock) {
+      lock.style.opacity = '0';
+      lock.style.visibility = 'hidden';
+      lock.style.pointerEvents = 'none';
+      lock.style.display = 'none';
+    }
+    const nav = document.getElementById(navId);
+    if (nav && navId !== 'nav-bonus') {
+      const icon = nav.querySelector('i');
+      if (icon) icon.style.color = '#f5a623';
+    }
+  }
+
+  function goToLevel(num) {
+    const navId = LEVEL_NAV[num - 1];
+    const secId = LEVEL_SEC[num - 1];
+    unlockNav(navId);
+    showSection(secId, navId);
+  }
+
+  function goToSection(secId, navId) {
+    unlockNav(navId);
+    showSection(secId, navId);
+  }
+
+
+  // ════════════════════════════════════════
+  //  HEADER LOCK ANIMATION
+  // ════════════════════════════════════════
+
+  function handleHeaderLock(sectionId) {
+    const headerLock = document.getElementById('header-lock');
+    if (!headerLock) return;
+
+    if (LOCK_SECTIONS.has(sectionId)) {
+      headerLock.style.display = 'flex';
+      headerLock.classList.remove('unlocking');
+      void headerLock.offsetWidth;
+      requestAnimationFrame(() => {
+        headerLock.classList.add('unlocking');
+      });
+    } else {
+      headerLock.style.display = 'none';
+      headerLock.classList.remove('unlocking');
+    }
+  }
+
+
+  // ════════════════════════════════════════
+  //  AVATAR IMAGE SWAP
+  // ════════════════════════════════════════
+
+  function swapAvatarImage(imgEl, newSrc) {
+    imgEl.classList.add('swapping');
+    setTimeout(() => {
+      imgEl.src = newSrc;
+      imgEl.classList.remove('swapping');
+    }, 400);
+  }
+
+
+  // ════════════════════════════════════════
+  //  ZAINO ANIMATION
+  // ════════════════════════════════════════
+
+  function shakeZaino(btn) {
+    const icon = btn.querySelector('.subj-icon');
+    if (icon) {
+      icon.classList.remove('shaking');
+      void icon.offsetWidth;
+      icon.classList.add('shaking');
+      icon.addEventListener('animationend', () => icon.classList.remove('shaking'), { once: true });
+    }
+
+    const wrapper    = document.getElementById('backpack-wrapper');
+    const staticImg  = document.getElementById('backpack-static');
+    const openImg    = document.getElementById('backpack-open');
+
+    if (wrapper && staticImg && openImg) {
+      openImg.classList.remove('hidden');
+      staticImg.classList.add('hidden');
+
+      wrapper.classList.remove('move-near-avatar');
+      void wrapper.offsetWidth;
+      wrapper.classList.add('move-near-avatar');
+
+      setTimeout(() => {
+        openImg.classList.add('hidden');
+        staticImg.classList.remove('hidden');
+      }, 1200);
+
+      wrapper.addEventListener('animationend', () => wrapper.classList.remove('move-near-avatar'), { once: true });
+    }
+  }
+
+
+  // ════════════════════════════════════════
+  //  COMPETENCE ACCORDION
+  // ════════════════════════════════════════
+
+  function toggleCompetence(type) {
+    const list   = document.getElementById('competence-' + type);
+    const toggle = document.getElementById('toggle-' + type);
+    if (!list) return;
+    const isOpen = list.classList.contains('open');
+    if (isOpen) {
+      list.classList.remove('open');
+      if (toggle) toggle.classList.remove('open-toggle');
+    } else {
+      list.classList.add('open');
+      if (toggle) toggle.classList.add('open-toggle');
+    }
+  }
+
+
+  // ════════════════════════════════════════
+  //  COMPETENCE CARD (avatar section)
+  // ════════════════════════════════════════
+
+  function showCompCard(title, text) {
+    const card = document.getElementById('comp-info-card');
+    document.getElementById('comp-info-title').textContent = title;
+    document.getElementById('comp-info-text').textContent  = text;
+    card.classList.remove('empty');
+  }
+
+
+  // ════════════════════════════════════════
+  //  BONUS INFO CARD
+  // ════════════════════════════════════════
+
+  function showBonusCard(title, text) {
+    const card = document.getElementById('bonus-info-card');
+    document.getElementById('bonus-info-title').textContent = title;
+    document.getElementById('bonus-info-text').textContent  = text;
+    card.classList.remove('empty');
+  }
+
+
+  // ════════════════════════════════════════
+  //  LEVEL COMPLETION
+  // ════════════════════════════════════════
+
+  function completeLivello(num) {
+    const cfg = LEVEL_CONFIG[num - 1];
+
+    const avatarImg = document.getElementById('lv' + num + '-avatar-img');
+    if (avatarImg) setTimeout(() => swapAvatarImage(avatarImg, cfg.avatarSrc), 600);
+
+    // FIX: set button to completed state FIRST, never override it later
+    const btnSblocca = document.getElementById('btn-lv' + num);
+    if (btnSblocca) {
+      btnSblocca.textContent = cfg.label;
+      btnSblocca.disabled = true;
+      btnSblocca.style.background = 'transparent';
+      btnSblocca.style.border = '1.5px solid var(--green)';
+      btnSblocca.style.color = 'var(--green)';
+      btnSblocca.style.boxShadow = '0 0 16px var(--green-glow)';
+    }
+
+    const accessoryContainer = document.getElementById('lv' + num + '-accessory');
+    if (accessoryContainer) setTimeout(() => accessoryContainer.style.display = 'block', 800);
+
+    const btnAvanti = document.getElementById('avanti-lv' + num);
+    if (btnAvanti) setTimeout(() => btnAvanti.classList.add('visible'), 900);
+
+    if (num < 5) {
+      // Unlock next level nav and enable its unlock button
+      unlockNav('nav-lv' + (num + 1));
+      const nextBtn = document.getElementById('btn-lv' + (num + 1));
+      if (nextBtn) {
+        nextBtn.disabled = false;
+        nextBtn.textContent = '🔓 SBLOCCA ACCESSORIO';
+      }
+    } else {
+      // LV5 completed: unlock Bonus level
+      // Do NOT touch btn-lv5 here — it's already set correctly above
+      unlockNav('nav-bonus');
+      // Pre-enable btn-soon for when user reaches Prospettive Future
+      const soonUnlockBtn = document.getElementById('btn-soon');
+      if (soonUnlockBtn) {
+        soonUnlockBtn.disabled = false;
+        soonUnlockBtn.textContent = '🔓 SBLOCCA ACCESSORIO';
+      }
+    }
+  }
+
+
+  // ════════════════════════════════════════
+  //  SOON COMPLETION
+  // ════════════════════════════════════════
+
+  function completeSoon() {
+    const avatarImg = document.getElementById('soon-avatar-img');
+    if (avatarImg) setTimeout(() => swapAvatarImage(avatarImg, 'img/avatar7.png'), 600);
+
+    const btnSblocca = document.getElementById('btn-soon');
+    if (btnSblocca) {
+      btnSblocca.textContent = '✔ ACCESSORIO SBLOCCATO';
+      btnSblocca.disabled = true;
+    }
+
+    const accessoryContainer = document.getElementById('soon-accessory');
+    if (accessoryContainer) setTimeout(() => accessoryContainer.style.display = 'block', 800);
+  }
+
+
+  // ════════════════════════════════════════
+  //  INIT
+  // ════════════════════════════════════════
+
+  window.addEventListener('DOMContentLoaded', () => {
+    showSection('sec-avatar', 'nav-avatar');
+  });
+</script>
+</body>
+</html>
