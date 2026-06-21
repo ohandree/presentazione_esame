@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>VibeON | Maglia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/47e2a34600.js" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" id="imglogo" alt=""></a>
+            </div>
+            <ul class="links">   
+                <li><a href="magliette.html">T-Shirts</a></li>
+                <li><a href="felpe.html">Felpe</a></li>
+                <li><a href="pantaloni.html">Pantaloni</a></li>
+            </ul>
+            <div class="icone">
+                <a href="login.html" class="login">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <a href="carrello.html" class="cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+            </div>
+          </nav>
+    </header>
+    <section class="prodotto">
+        <a href="pantalone3.html"><img src="img/pantalone3.png" id="pantalone3" onmouseover="retro(3)" onmouseleave="reset(3)"></a>
+        <div class="scelte-3">
+            <input type="radio" name="size" id="XS">
+            <label for="XS">XS</label>
+
+            <input type="radio" name="size" id="S">
+            <label for="S">S</label>
+
+            <input type="radio" name="size" id="M">
+            <label for="M">M</label>
+
+            <input type="radio" name="size" id="L">
+            <label for="L">L</label>
+
+            <input type="radio" name="size" id="XL">
+            <label for="XL">XL</label>
+        </div>
+        <div class="info">
+            <h1 class="traspirante1">Pantalone Traspirante</h1>
+            <p><span class="testo" style="color: rgb(0, 163, 208);">Leggero e ideale per lo sport.</span></p>
+            <p>Realizzato in cotone 100% biologico, questo pantalone è perfetto per ogni occasione. Il design minimalista con il logo "VIBEON" stampato sul petto aggiunge un tocco moderno e discreto. Il tessuto è morbido sulla pelle e traspirante, garantendo massimo comfort durante tutta la giornata.</p>
+            <p>Vestibilità regolare, disponibile in diverse taglie dalla XS alla XL. Ideale da abbinare a t-shirt, felpe oversize o sneakers per un look streetwear contemporaneo e curato.</p>
+            <p><span class="prezzo" style="color: rgb(0, 163, 208);">Prezzo: 19.99€</span></p>
+            <button class="add-3" id="openModal">Aggiungi al carrello</button>
+        </div>
+    </section>
+    <div id="popup" class="popup">
+        <div class="popup-contenuto">
+            <i class="fa-solid fa-circle-check corretto"></i>
+            <p>Prodotto aggiunto al carrello correttamente</p>
+            <button class="chiudi">Chiudi</button>
+        </div>
+    </div>
+
+    <footer>
+        <center><p>&copy VibeON, tutti i diritti sono riservati</p>
+        <div class="social-icons">
+            <p class="contattaci">Contattaci: vibeondirezione@gmail.com</p>
+            <a href=""><i class="fa-brands fa-square-facebook facebook"></i></a>
+            <a href=""><i class="fa-brands fa-square-instagram instagram"></i></a>
+            <a href=""><i class="fa-brands fa-square-x-twitter twitter"></i></a>
+        </div></center>
+    </footer>
+</body>
+</html>
